@@ -1,0 +1,43 @@
+import java.awt.*;
+import java.applet.*;
+
+public class Screensaver extends Applet
+{
+
+ int R,G,B;
+ int xmerkez, ymerkez, boy, en;
+ int dongu;
+ long bekle;
+
+public void paint (Graphics g)
+{
+
+dongu=0;
+
+while (dongu<40)
+ { 
+  R=(int)Math.floor(Math.random()*256);
+  G=(int)Math.floor(Math.random()*256);
+  B=(int)Math.floor(Math.random()*256);
+  xmerkez=(int)Math.floor(Math.random()*300);
+  ymerkez=(int)Math.floor(Math.random()*300);
+  boy=(int)Math.floor(Math.random()*50)+15;
+  en=(int)Math.floor(Math.random()*50)+15;
+
+  g.setColor(new Color(R,G,B));
+  g.fillOval(xmerkez, ymerkez, boy, en);
+  
+  bekle=0;
+  while(bekle<10000000)
+  bekle++;
+
+  dongu++;
+ }
+
+repaint();
+
+}
+
+
+
+}
