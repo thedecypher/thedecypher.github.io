@@ -1,0 +1,107 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Yildiz extends Applet implements ActionListener
+{
+    Label istem1 ; // Sayilarin girilmesini ister
+    TextField alan1, alan2, alan3, alan4, alan5 ; // Sayilarin girileceði alanlar
+    int sayi1, sayi2, sayi3, sayi4, sayi5; 
+
+public void init()  // Ekran düzenlemesi
+{
+    istem1 = new Label ( "Aþaðýdaki alanlara beþ adet sayý (1-31) giriniz") ;
+    add ( istem1 ) ;
+
+    alan1 = new TextField ( 2 ) ;
+    add ( alan1 ) ;
+     
+    alan2 = new TextField ( 2 ) ;
+    add ( alan2 ) ;
+
+    alan3 = new TextField ( 2 ) ;
+    add ( alan3 ) ;
+
+    alan4 = new TextField ( 2 ) ;
+    add ( alan4 ) ;    
+
+    alan5 = new TextField ( 2 ) ;
+    alan5.addActionListener ( this ) ; // Ýþlemi baþlatacak olan alan
+    add ( alan5 ) ;
+    
+    sayi1 = 0 ; // ilk deðerler
+    sayi2 = 0 ;
+    sayi3 = 0 ;
+    sayi4 = 0 ;
+    sayi5 = 0 ;
+}
+
+public void paint ( Graphics g )
+{
+
+int xpoz = 25;
+int ypoz = 75;
+
+
+if (sayi1>31 || sayi2>31 || sayi3>31 || sayi4>31 || sayi5>31) // Sayý kontrolu
+    g.drawString ("Sayýlar 31\'den küçük olmalý",60,80);
+
+else
+{
+
+  xpoz = 25;
+  for ( int sayac = 1; sayac <= sayi1; sayac++ ) // *'lar çizilir
+      {
+       g.drawString ( "*",xpoz,ypoz);
+       xpoz += 5;
+      }
+
+  ypoz += 10;
+  xpoz = 25;
+  for ( int sayac = 1; sayac <= sayi2; sayac++ )
+      {
+       g.drawString ( "*",xpoz,ypoz);
+       xpoz += 5;
+      }
+
+  ypoz += 10;
+  xpoz = 25;
+  for ( int sayac = 1; sayac <= sayi3; sayac++ )
+      {
+       g.drawString ( "*",xpoz,ypoz);
+       xpoz += 5;
+      }         
+
+  ypoz += 10;
+  xpoz = 25;
+  for ( int sayac = 1; sayac <= sayi4; sayac++ )
+      {
+       g.drawString ( "*",xpoz,ypoz);
+       xpoz += 5;
+      }
+
+  ypoz += 10;
+  xpoz = 25;
+   for ( int sayac = 1; sayac <= sayi5; sayac++ )
+      {
+       g.drawString ( "*",xpoz,ypoz);
+       xpoz += 5;
+      }
+
+ypoz = 75; // Ýkinci çizimin doðru olmasý için ypoz'u resetler
+}
+}
+    
+public void actionPerformed ( ActionEvent e )
+{
+
+   sayi1 = Integer.parseInt ( alan1.getText() ) ;
+   sayi2 = Integer.parseInt ( alan2.getText() ) ;
+   sayi3 = Integer.parseInt ( alan3.getText() ) ;
+   sayi4 = Integer.parseInt ( alan4.getText() ) ;
+   sayi5 = Integer.parseInt ( alan5.getText() ) ;
+   repaint(); 
+ }
+
+}
+
